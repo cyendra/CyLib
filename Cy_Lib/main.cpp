@@ -1,13 +1,21 @@
 #include <iostream>
-#include "Prototype.h"
+#include "Abstract_Factory.h"
 
 using namespace std;
 
 int main()
 {
-	Prototype* p = new ConcretePrototype("ÃØÃÜ");
-	p->message();
-	Prototype* q = p->Clone();
-	q->message();
+	auto fac = ConcreteFactory::Instance();
+	auto pro = fac->CreateProduct();
+	auto obj = fac->CreateObject();
+	pro->message();
+	obj->gao();
+
+	auto facEx = ExtraFactory::Instance();
+	auto proEx = facEx->CreateProduct();
+	auto objEx = facEx->CreateObject();
+	proEx->message();
+	objEx->gao();
+
 	system("pause");
 }

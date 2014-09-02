@@ -29,5 +29,8 @@
     <ClInclude Include="Prototype.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="Abstract_Factory.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
