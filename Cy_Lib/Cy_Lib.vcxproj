@@ -81,6 +81,7 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Prototype.h" />
     <ClInclude Include="Singleton.h" />
     <ClInclude Include="SmartPoint.h" />
   </ItemGroup>

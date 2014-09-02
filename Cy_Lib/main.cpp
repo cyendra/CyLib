@@ -1,12 +1,13 @@
 #include <iostream>
-#include "Singleton.h"
+#include "Prototype.h"
+
 using namespace std;
 
 int main()
 {
-	Singleton* p = Singleton::Instance();
+	Prototype* p = new ConcretePrototype("秘密");
 	p->message();
-	Singleton* q = Singleton::Instance();
-	if (p == q) cout << "确实是单例" << endl;
+	Prototype* q = p->Clone();
+	q->message();
 	system("pause");
 }
