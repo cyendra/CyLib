@@ -32,5 +32,11 @@
     <ClInclude Include="Abstract_Factory.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="Factory_Method.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Winsock.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

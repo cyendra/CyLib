@@ -57,6 +57,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -82,9 +83,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Abstract_Factory.h" />
+    <ClInclude Include="Factory_Method.h" />
     <ClInclude Include="Prototype.h" />
     <ClInclude Include="Singleton.h" />
     <ClInclude Include="SmartPoint.h" />
+    <ClInclude Include="Winsock.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

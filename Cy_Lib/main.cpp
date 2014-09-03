@@ -1,21 +1,14 @@
 #include <iostream>
-#include "Abstract_Factory.h"
+#include "Winsock.h"
 
 using namespace std;
 
 int main()
 {
-	auto fac = ConcreteFactory::Instance();
-	auto pro = fac->CreateProduct();
-	auto obj = fac->CreateObject();
-	pro->message();
-	obj->gao();
-
-	auto facEx = ExtraFactory::Instance();
-	auto proEx = facEx->CreateProduct();
-	auto objEx = facEx->CreateObject();
-	proEx->message();
-	objEx->gao();
-
+	int tp;
+	cout << "1-服务器 2-客户端" << endl;
+	cin >> tp;
+	if (tp == 1) WinSock::Server(9190);
+	if (tp == 2) WinSock::Client("127.0.0.1", 9190);
 	system("pause");
 }
