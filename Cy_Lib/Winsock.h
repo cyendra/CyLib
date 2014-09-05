@@ -5,6 +5,7 @@ namespace WinSock {
 
 	void ErrorHandling(char* message) {
 		std::cerr << message << std::endl;
+		system("pause");
 		exit(1);
 	}
 
@@ -55,5 +56,41 @@ namespace WinSock {
 		return 0;
 	}
 
+	void GetHostByName(const char name[]) {
+		WSADATA wsaData;
+		if (WSAStartup(MAKEWORD(2, 2), &wsaData) != 0) ErrorHandling("WSAStartup() error");
+		hostent* host;
+		host = gethostbyname(name);
+		if (!host) ErrorHandling("gethost error");
+		std::cout << "Official name: " << host->h_name << std::endl;
+		for (int i = 0; host->h_aliases[i]; i++) {
+			std::cout << "Aliases " << i + 1 << ": " << host->h_aliases[i] << std::endl;
+		}
+		std::cout << "Address type: " << (host->h_addrtype == AF_INET ? "AF_INET" : "AF_INET6") << std::endl;
+		for (int i = 0; host->h_addr_list[i]; i++) {
+			std::cout << "IP addr " << i + 1 << ": " << inet_ntoa(*(in_addr*)host->h_addr_list[i]) << std::endl;
+		}
+		WSACleanup();
+	}
+
+	void GetHostByAddr(const char ip[]) {
+		WSADATA wsaData;
+		hostent* host;
+		SOCKADDR_IN addr;
+		if (WSAStartup(MAKEWORD(2, 2), &wsaData) != 0) ErrorHandling("WSAStartup() error");
+		memset(&addr, 0, sizeof(addr));
+		addr.sin_addr.S_un.S_addr = inet_addr(ip);
+		host = gethostbyaddr((char*)&addr.sin_addr, 4, AF_INET);
+		if (!host) ErrorHandling("gethost error");
+		std::cout << "Official name: " << host->h_name << std::endl;
+		for (int i = 0; host->h_aliases[i]; i++) {
+			std::cout << "Aliases " << i + 1 << ": " << host->h_aliases[i] << std::endl;
+		}
+		std::cout << "Address type: " << (host->h_addrtype == AF_INET ? "AF_INET" : "AF_INET6") << std::endl;
+		for (int i = 0; host->h_addr_list[i]; i++) {
+			std::cout << "IP addr " << i + 1 << ": " << inet_ntoa(*(in_addr*)host->h_addr_list[i]) << std::endl;
+		}
+		WSACleanup();
+	}
 
 };
