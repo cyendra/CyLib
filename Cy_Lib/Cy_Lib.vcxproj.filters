@@ -38,5 +38,8 @@
     <ClInclude Include="Winsock.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="WebServ.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

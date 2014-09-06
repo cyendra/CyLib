@@ -87,6 +87,7 @@
     <ClInclude Include="Prototype.h" />
     <ClInclude Include="Singleton.h" />
     <ClInclude Include="SmartPoint.h" />
+    <ClInclude Include="WebServ.h" />
     <ClInclude Include="Winsock.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
