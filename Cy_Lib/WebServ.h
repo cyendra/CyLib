@@ -5,6 +5,7 @@
 #include <process.h>
 
 namespace WebServ {
+
 	const int BUF_SIZE = 2048;
 	const int BUF_SMALL = 100;
 	unsigned WINAPI RequestHandler(void* arg);
@@ -23,6 +24,7 @@ namespace WebServ {
 		int clntAdrSize;
 
 		if (WSAStartup(MAKEWORD(2, 2), &wsaData) != 0) ErrorHandling("WSAStartup error");
+		printf("WinSock库初始化完毕\n");
 		hServSock = socket(PF_INET, SOCK_STREAM, IPPROTO_TCP);
 		memset(&servAdr, 0, sizeof(servAdr));
 		servAdr.sin_family = AF_INET;
@@ -31,7 +33,7 @@ namespace WebServ {
 
 		if (bind(hServSock, (SOCKADDR*)&servAdr, sizeof(servAdr)) == SOCKET_ERROR) ErrorHandling("bind error");
 		if (listen(hServSock, 5) == SOCKET_ERROR) ErrorHandling("listen error");
-
+		printf("开始监听连接...\n");
 		for (;;) {
 			clntAdrSize = sizeof(clntAdr);
 			hClntSock = accept(hServSock, (SOCKADDR*)&clntAdr, &clntAdrSize);
@@ -49,19 +51,21 @@ namespace WebServ {
 		char method[BUF_SMALL];
 		char ct[BUF_SMALL];
 		char fileName[BUF_SMALL];
+		char* pNext;
 
-		recv(hClntSock, buf, BUF_SIZE, 0);
+		int len = recv(hClntSock, buf, BUF_SIZE, 0);
+		buf[len] = 0;
+		printf("收到信息：\n%s\n", buf);
 		if (strstr(buf, "HTTP/") == NULL) {
 			SendErrorMSG(hClntSock);
 			closesocket(hClntSock);
 			return 1;
 		}
-
-		strcpy(method, strtok(buf, " /"));
+		strcpy_s(method, BUF_SMALL, strtok_s(buf, " /", &pNext));
 		if (strcmp(method, "GET")) SendErrorMSG(hClntSock);
-
-		strcpy(fileName, strtok(NULL, " /"));
-		strcpy(ct, ContentType(fileName));
+		strcpy_s(fileName, BUF_SMALL, strtok_s(NULL, " /", &pNext));
+		strcpy_s(ct, BUF_SMALL, ContentType(fileName));
+		printf("GET方法\nfileName: %s\nct: %s\n", fileName, ct);
 		SendData(hClntSock, ct, fileName);
 		return 0;
 	}
@@ -74,12 +78,12 @@ namespace WebServ {
 		char buf[BUF_SIZE];
 		FILE* sendFile;
 
-		sprintf(cntType, "Content-type:%s\r\n\r\n", ct);
-		if ((sendFile = fopen(fileName, "r")) == NULL) {
+		sprintf_s(cntType, "Content-type:%s\r\n\r\n", ct);
+		if ((fopen_s(&sendFile, fileName, "r")) != NULL) {
 			SendErrorMSG(sock);
 			return;
 		}
-
+		printf("开始发送信息...\n");
 		send(sock, protocol, strlen(protocol), 0);
 		send(sock, servName, strlen(servName), 0);
 		send(sock, cntLen, strlen(cntLen), 0);
@@ -91,7 +95,8 @@ namespace WebServ {
 	}
 
 	void SendErrorMSG(SOCKET sock) {
-		char protocol[] = "HTTP/1.0 400 Bad Request\r\n";
+		printf("发生错误！\n");
+		char protocol[] = "HTTP/1.0 404 Not Found\r\n";
 		char servName[] = "Server:simple web server\r\n";
 		char cntLen[] = "Content-length:2048\r\n";
 		char cntType[] = "Content-type:text/html\r\n\r\n";
@@ -109,9 +114,10 @@ namespace WebServ {
 	char* ContentType(char* file) {
 		char extension[BUF_SMALL];
 		char fileName[BUF_SMALL];
-		strcpy(fileName, file);
-		strtok(fileName, ".");
-		strcpy(extension, strtok(NULL, "."));
+		char* pNext;
+		strcpy_s(fileName, BUF_SMALL, file);
+		strtok_s(fileName, ".", &pNext);
+		strcpy_s(extension, BUF_SMALL, strtok_s(NULL, ".", &pNext));
 		if (!strcmp(extension, "html") || !strcmp(extension, "htm")) return "text/html";
 		else return "text/plain";
 	}
