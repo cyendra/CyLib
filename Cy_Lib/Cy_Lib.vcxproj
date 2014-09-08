@@ -84,9 +84,11 @@
   <ItemGroup>
     <ClInclude Include="Abstract_Factory.h" />
     <ClInclude Include="Factory_Method.h" />
+    <ClInclude Include="IO.h" />
     <ClInclude Include="Prototype.h" />
     <ClInclude Include="Singleton.h" />
     <ClInclude Include="SmartPoint.h" />
+    <ClInclude Include="Thread.h" />
     <ClInclude Include="WebServ.h" />
     <ClInclude Include="Winsock.h" />
   </ItemGroup>

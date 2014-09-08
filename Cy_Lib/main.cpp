@@ -1,6 +1,7 @@
 #include <iostream>
 #include "Winsock.h"
 #include "WebServ.h"
+#include "Thread.h"
 using namespace std;
 
 int main()
@@ -21,7 +22,13 @@ int main()
 		WinSock::GetHostByAddr(s);
 	}
 #endif // HOST
-	WebServ::Start("9190");
 
+#ifdef WEBSERV
+	WebServ::Start("9190");
+#endif // WEBSERV
+
+	//Thread::Test();
+	//Thread::Test2();
+	Thread::Test3();
 	system("pause");
 }

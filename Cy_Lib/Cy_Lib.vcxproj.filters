@@ -41,5 +41,11 @@
     <ClInclude Include="WebServ.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="Thread.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="IO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
