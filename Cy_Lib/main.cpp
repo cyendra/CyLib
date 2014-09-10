@@ -8,6 +8,8 @@
 
 #include "Adapter.h"
 
+#include "S-DES.h"
+
 
 using namespace std;
 
@@ -40,9 +42,14 @@ int main()
 	Thread::Test3();
 #endif // THREAD
 
+#ifdef ADAPTER
 	Client clt;
 	clt.gaoCls();
 	clt.gaoImp();
 
+#endif // ADAPTER
+
+	S_DES s;
+	
 	system("pause");
 }
