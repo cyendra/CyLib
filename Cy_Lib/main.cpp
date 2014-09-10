@@ -1,7 +1,14 @@
 #include <iostream>
+
+#ifdef WINSOCK
 #include "Winsock.h"
 #include "WebServ.h"
-#include "Thread.h"
+#include "Thread.h"  
+#endif // WINSOCK
+
+#include "Adapter.h"
+
+
 using namespace std;
 
 int main()
@@ -27,8 +34,15 @@ int main()
 	WebServ::Start("9190");
 #endif // WEBSERV
 
+#ifdef THREAD
 	//Thread::Test();
 	//Thread::Test2();
 	Thread::Test3();
+#endif // THREAD
+
+	Client clt;
+	clt.gaoCls();
+	clt.gaoImp();
+
 	system("pause");
 }

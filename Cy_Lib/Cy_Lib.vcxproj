@@ -83,6 +83,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Abstract_Factory.h" />
+    <ClInclude Include="Adapter.h" />
     <ClInclude Include="Factory_Method.h" />
     <ClInclude Include="IO.h" />
     <ClInclude Include="Prototype.h" />
@@ -91,6 +92,9 @@
     <ClInclude Include="Thread.h" />
     <ClInclude Include="WebServ.h" />
     <ClInclude Include="Winsock.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

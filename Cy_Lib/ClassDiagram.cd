@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Adaptee">
+    <Position X="6.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Adapter.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Target">
+    <Position X="1" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Adapter.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AdapterCls">
+    <Position X="4" Y="2.75" Width="1.5" />
+    <InheritanceLine Type="Target">
+      <InheritanceModifierLabel ManuallyPlaced="true">
+        <Position X="0.11" Y="0.07" />
+      </InheritanceModifierLabel>
+    </InheritanceLine>
+    <InheritanceLine Type="Adaptee">
+      <InheritanceModifierLabel ManuallyPlaced="true">
+        <Position X="0.039" Y="0.1" />
+      </InheritanceModifierLabel>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Adapter.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AdapterImp">
+    <Position X="4" Y="0.75" Width="1.5" />
+    <InheritanceLine Type="Target">
+      <InheritanceModifierLabel ManuallyPlaced="true">
+        <Position X="0.102" Y="0.058" />
+      </InheritanceModifierLabel>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAQAAAAAAAAAAAgAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Adapter.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Client">
+    <Position X="1" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAgAAAAAAQ=</HashCode>
+      <FileName>Adapter.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Microsoft YaHei UI" Size="9" />
+</ClassDiagram>
