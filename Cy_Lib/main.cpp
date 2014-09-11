@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include <string>
 #ifdef WINSOCK
 #include "Winsock.h"
 #include "WebServ.h"
@@ -49,7 +49,5 @@ int main()
 
 #endif // ADAPTER
 
-	S_DES s;
-	
 	system("pause");
 }
