@@ -1,14 +1,13 @@
+#define WINSOCK
+#define THREAD
+
 #include <iostream>
 #include <string>
 #ifdef WINSOCK
 #include "Winsock.h"
-#include "WebServ.h"
 #include "Thread.h"  
 #endif // WINSOCK
 
-#include "Adapter.h"
-
-#include "S-DES.h"
 
 
 using namespace std;
@@ -39,7 +38,9 @@ int main()
 #ifdef THREAD
 	//Thread::Test();
 	//Thread::Test2();
-	Thread::Test3();
+	//Thread::Test3();
+	Thread::Thread obj;
+	obj.run();
 #endif // THREAD
 
 #ifdef ADAPTER
@@ -48,6 +49,8 @@ int main()
 	clt.gaoImp();
 
 #endif // ADAPTER
+
+
 
 	system("pause");
 }

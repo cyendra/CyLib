@@ -4,6 +4,31 @@
 
 namespace Thread {
 	
+	class Thread {
+	public:
+		void start();
+		virtual unsigned run();
+		HANDLE getThread();
+	private:
+		HANDLE hThread;
+		static unsigned WINAPI agent(void *p);
+	};
+	void Thread::start() {
+		hThread = (HANDLE)_beginthreadex(NULL, 0, agent, (void*)this, 0, NULL);
+	}
+	unsigned Thread::run() {
+		puts("Base Thread");
+		return 0;
+	}
+	unsigned WINAPI Thread::agent(void *p) {
+		Thread *agt = (Thread*)p;
+		unsigned res = agt->run();
+		return res;
+	}
+	HANDLE Thread::getThread() {
+		return hThread;
+	}
+
 	unsigned WINAPI Read(void *arg);
 	unsigned WINAPI Accu(void *arg);
 	static HANDLE semOne;
