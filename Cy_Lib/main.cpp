@@ -7,13 +7,14 @@
 #include "Winsock.h"
 #include "Thread.h"  
 #endif // WINSOCK
-
+#include "Base.h"
+#include "SonOfBase.h"
 
 
 using namespace std;
 
-int main()
-{
+void Test() {
+
 #ifdef SERVER
 	int tp;
 	cout << "1-服务器 2-客户端" << endl;
@@ -50,7 +51,15 @@ int main()
 
 #endif // ADAPTER
 
+}
 
+
+
+int main()
+{
+	Base* p = new SonOfBase();
+	p->gao();
+	delete p;
 
 	system("pause");
 }
