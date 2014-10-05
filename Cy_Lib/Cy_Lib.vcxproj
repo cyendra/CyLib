@@ -89,6 +89,7 @@
     <ClInclude Include="Base.h" />
     <ClInclude Include="Factory_Method.h" />
     <ClInclude Include="IO.h" />
+    <ClInclude Include="Lambda.h" />
     <ClInclude Include="Prototype.h" />
     <ClInclude Include="S-DES.h" />
     <ClInclude Include="Singleton.h" />

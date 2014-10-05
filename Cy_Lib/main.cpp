@@ -7,8 +7,7 @@
 #include "Winsock.h"
 #include "Thread.h"  
 #endif // WINSOCK
-#include "Base.h"
-#include "SonOfBase.h"
+#include "Lambda.h"
 
 
 using namespace std;
@@ -57,9 +56,7 @@ void Test() {
 
 int main()
 {
-	Base* p = new SonOfBase();
-	p->gao();
-	delete p;
+	Lambda::LambdaFunc();
 
 	system("pause");
 }

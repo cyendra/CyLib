@@ -68,6 +68,9 @@
     <ClInclude Include="SonOfBase.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="Lambda.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
