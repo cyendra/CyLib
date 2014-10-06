@@ -7,7 +7,7 @@
 #include "Winsock.h"
 #include "Thread.h"  
 #endif // WINSOCK
-#include "Lambda.h"
+#include "Limits.h"
 
 
 using namespace std;
@@ -56,7 +56,7 @@ void Test() {
 
 int main()
 {
-	Lambda::LambdaFunc();
+	SomeLimits();
 
 	system("pause");
 }

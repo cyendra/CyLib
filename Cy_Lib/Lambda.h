@@ -28,4 +28,14 @@ namespace Lambda {
 		auto xyz = [](int x){return x * 10; }(10);
 		
 	}
+
+	void Iterator() {
+		using namespace std;
+		istream_iterator<string> ii(cin);
+		istream_iterator<string> eos;
+		for_each(ii, eos, [](string s){
+			cout << s << endl;
+		});
+
+	}
 }
