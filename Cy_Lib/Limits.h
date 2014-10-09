@@ -2,6 +2,8 @@
 
 #include <limits>
 #include <cstdio>
+#include <functional>
+
 
 class Base {
 public:
@@ -70,4 +72,9 @@ void SomeLimits() {
 	q->gao2();
 	q->gao3();
 	q->gao4();
+}
+
+void funtion() {
+
+
 }
