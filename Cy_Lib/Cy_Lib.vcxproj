@@ -87,6 +87,7 @@
     <ClInclude Include="Abstract_Factory.h" />
     <ClInclude Include="Adapter.h" />
     <ClInclude Include="Base.h" />
+    <ClInclude Include="Class.h" />
     <ClInclude Include="Factory_Method.h" />
     <ClInclude Include="IO.h" />
     <ClInclude Include="Lambda.h" />

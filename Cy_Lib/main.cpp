@@ -8,7 +8,7 @@
 #include "Thread.h"  
 #endif // WINSOCK
 #include "Lambda.h"
-
+#include "Class.h"
 
 using namespace std;
 
@@ -56,7 +56,7 @@ void Test() {
 
 int main()
 {
-	Lambda::loopFunc();
+	test();
 
 	system("pause");
 }

@@ -28,7 +28,7 @@ namespace Lambda {
 		auto xyz = [](int x){return x * 10; }(10);
 		
 	}
-
+	/*
 	template<typename R, typename... V>
 	struct fixpoint {
 		typedef std::function<R(V...)> func_t;
@@ -77,5 +77,5 @@ namespace Lambda {
 		);
 		std::cout << fac(10) << std::endl;
 	}
-	
+	*/
 }
